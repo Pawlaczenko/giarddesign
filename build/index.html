@@ -10,12 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body class="min-h-screen text-black">
-    <header class="bg-white">
-        <section class="max-w-[1262px] mx-auto flex items-center justify-between p-6">
+    <header class="bg-white grid grid-cols-bleed">
+        <section class="col-start-2 flex items-center justify-between py-6">
             <a href="#hero" id="logo" class="flex-shrink-0 mr-auto">
                 <img src="./img/logo.svg" alt="giarddesign logo" />
             </a>
-            <nav id="menu-navigation" class="z-0 ease-in-out duration-300 bg-white absolute top-[-100%] left-0 w-full items-center md:w-auto py-5 md:py-0 text-base md:static flex flex-col md:flex-row md:gap-12 gap:2 md:text-sm leading-7">
+            <nav data-opened="false" id="menu-navigation" class="data-[opened=true]:top-[72px] top-[-100%] z-10 ease-in-out duration-300 bg-white absolute left-0 w-full items-center md:w-auto py-5 md:py-0 text-base md:static flex flex-col md:flex-row md:gap-12 gap:2 md:text-sm leading-7">
                 <div class="relative w-full md:w-auto flex flex-col items-center" id="dropdown-menu">
                     <button tabindex="0" class="hover:text-green flex items-center gap-1 w-full max-md:py-5 justify-center" id="oferta-menu-button">
                         Oferta
@@ -23,7 +23,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                         </svg>
                     </button>
-                    <div class="ease-in-out duration-200 text-center w-full p-2 bg-white rounded-md shadow-md focus:outline-none hidden md:absolute md:-z-10 md:right-0 md:top-full md:w-48"
+                    <div class="ease-in-out duration-200 text-center w-full p-2 bg-white rounded-md shadow-md focus:outline-none hidden md:absolute md:-z-20 md:right-0 md:top-full md:w-48"
                         id="oferta-menu">
                         <a href="#projekty" class="block px-4 py-2 text-sm border rounded-md border-transparent hover:border-beige">Projekty</a>
                         <a href="#wizualizacje" class="block px-4 py-2 text-sm border rounded-md border-transparent hover:border-beige">Wizualizacje</a>
@@ -45,15 +45,86 @@
                     </button>                
                 </div>
             </nav>
-            <button data-opened="false" id="burger-button" class="md:hidden ml-6">
+            <button id="burger-button" class="md:hidden ml-6">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path id="burger-icon" stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </button>
         </section>
     </header>
+    <main class="bg-beige grid grid-cols-bleed" id="hero">
+        <section class="col-start-1 col-span-3 lg:col-start-2 lg:col-span-2 relative h-[900px] lg:h-[740px] overflow-hidden" id="slider-wrapper">
+            <article class="slide bg-beige grid lg:gap-16 max-lg:grid-rows-[250px_1fr] grid-cols-bleed lg:grid-cols-bleed-right absolute h-full left-0 w-full transition-all ease-in-out duration-1000 transform translate-x-0">
+                <div class="flex flex-col items-start max-lg:pt-6 justify-start lg:justify-center max-lg:col-start-2">
+                    <h1 class="font-secondary text-5xl md:text-6xl font-medium mb-11 leading-snug md:leading-[70px]">Nowoczesna aranżacja<br/> Twojego ogrodu</h1>
+                    <p class="w-full md:w-3/4 text-base">Marka GiardDesign to wieloletnie doświadczenie i wysoka estetyka realizacji. Oferujemy kompleksowy zakres usług z indywidualnym podejściem do każdego projektu.</p>
+                    <div class="mt-8 md:mt-[72px] flex gap-x-9 gap-y-4 items-start flex-wrap">
+                        <button class="shrink-1 text-base rounded-full bg-green text-white px-6 py-[13px] hover:bg-white hover:text-green">Skontaktuj się z nami</button>
+                        <button class="text-base rounded-full bg-transparent text-green px-6 py-[12px] border border-green flex justify-center items-center gap-2 hover:bg-green hover:text-white">
+                            Zobacz nasze realizacje
+                            <svg viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4">
+                                <path d="M16 8.49529L15.1043 7.59959L8.63642 14.0769L8.63642 0.5L7.36358 0.5L7.36358 14.0675L0.895699 7.59959L9.54553e-08 8.49529L8.00471 16.5L16 8.49529Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <figure class="bg-[url('/build/img/slider-1.jpg')] bg-cover bg-center fill h-[250px] lg:h-full max-lg:row-start-1 max-lg:col-start-1 max-lg:col-span-3">
+                    <div class="w-full h-full bg-white/10"></div>
+                </figure>
+            </article>
+            <article class="slide bg-beige grid lg:gap-16 max-lg:grid-rows-[250px_1fr] grid-cols-bleed lg:grid-cols-bleed-right absolute h-full left-0 w-full transition-all ease-in-out duration-1000 transform translate-x-full">
+                <div class="flex flex-col items-start max-lg:pt-6 justify-start lg:justify-center max-lg:col-start-2">
+                    <h1 class="font-secondary text-5xl md:text-6xl font-medium mb-11 leading-snug md:leading-[70px]">Ekspertyza i Pasja w giardDesign</h1>
+                    <p class="w-full md:w-3/4 text-base">Marka GiardDesign, czerpie z wieloletniego doświadczenia oraz pasji w dziedzinie projektowania wnętrz i aranżacji przestrzeni. Nasz zespół tworzą wykwalifikowani projektanci z bogatą wiedzą i kreatywnością, którzy zawsze podchodzą do każdego projektu z entuzjazmem i zaangażowaniem.</p>
+                    <div class="mt-8 md:mt-[72px] flex gap-x-9 gap-y-4 items-start flex-wrap">
+                        <button class="shrink-1 text-base rounded-full bg-green text-white px-6 py-[13px] hover:bg-white hover:text-green">Skontaktuj się z nami</button>
+                        <button class="text-base rounded-full bg-transparent text-green px-6 py-[12px] border border-green flex justify-center items-center gap-2 hover:bg-green hover:text-white">
+                            Zobacz nasze realizacje
+                            <svg viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4">
+                                <path d="M16 8.49529L15.1043 7.59959L8.63642 14.0769L8.63642 0.5L7.36358 0.5L7.36358 14.0675L0.895699 7.59959L9.54553e-08 8.49529L8.00471 16.5L16 8.49529Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <figure class="bg-[url('/build/img/slider-3.jpg')] bg-cover bg-center fill h-[250px] lg:h-full max-lg:row-start-1 max-lg:col-start-1 max-lg:col-span-3">
+                    <div class="w-full h-full bg-white/10"></div>
+                </figure>
+            </article>
+            <article class="slide bg-beige grid lg:gap-16 max-lg:grid-rows-[250px_1fr] grid-cols-bleed lg:grid-cols-bleed-right absolute h-full left-0 w-full transition-all ease-in-out duration-1000 transform translate-x-full">
+                <div class="flex flex-col items-start max-lg:pt-6 justify-start lg:justify-center max-lg:col-start-2">
+                    <h1 class="font-secondary text-5xl md:text-6xl font-medium mb-11 leading-snug md:leading-[70px]">Znajdź nas na Instagramie i Twitterze!</h1>
+                    <p class="w-full md:w-3/4 text-base">Skontaktuj się z nami już dziś i bądź na bieżąco z naszymi nowościami! Odwiedź nas na Instagramie, gdzie dzielimy się inspirującymi treściami, informacjami o naszych produktach oraz kulisy naszej działalności.</p>
+                    <div class="mt-8 md:mt-[72px] flex gap-x-9 gap-y-4 items-start flex-wrap">
+                        <button class="shrink-1 text-base rounded-full bg-green text-white px-6 py-[13px] hover:bg-white hover:text-green">Skontaktuj się z nami</button>
+                        <button class="text-base rounded-full bg-transparent text-green px-6 py-[12px] border border-green flex justify-center items-center gap-2 hover:bg-green hover:text-white">
+                            Zobacz nasze realizacje
+                            <svg viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4">
+                                <path d="M16 8.49529L15.1043 7.59959L8.63642 14.0769L8.63642 0.5L7.36358 0.5L7.36358 14.0675L0.895699 7.59959L9.54553e-08 8.49529L8.00471 16.5L16 8.49529Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <figure class="bg-[url('/build/img/slider-2.jpg')] bg-cover bg-center fill h-[250px] lg:h-full max-lg:row-start-1 max-lg:col-start-1 max-lg:col-span-3">
+                    <div class="w-full h-full bg-white/10"></div>
+                </figure>
+            </article>
+            <div class="absolute right-0 lg:bottom-0 max-lg:top-[186px] bg-white flex">
+                <button class="w-16 h-16 lg:w-24 lg:h-24 bg-grey hover:bg-black hover:text-white" id="slider-button-prev">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mx-auto">
+                        <path d="M10.7951 22.9393C10.2093 23.5251 10.2093 24.4749 10.7951 25.0607L20.3411 34.6066C20.9268 35.1924 21.8766 35.1924 22.4624 34.6066C23.0482 34.0208 23.0482 33.0711 22.4624 32.4853L13.9771 24L22.4624 15.5147C23.0482 14.9289 23.0482 13.9792 22.4624 13.3934C21.8766 12.8076 20.9268 12.8076 20.3411 13.3934L10.7951 22.9393ZM36.1442 22.5L11.8558 22.5L11.8558 25.5L36.1442 25.5L36.1442 22.5Z" fill="currentColor"/>
+                    </svg>                                     
+                </button>
+                <button class="w-16 h-16 lg:w-24 lg:h-24 bg-grey hover:bg-black hover:text-white" id="slider-button-next">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 mx-auto">
+                        <path d="M37.2049 25.0607C37.7907 24.4749 37.7907 23.5251 37.2049 22.9393L27.6589 13.3934C27.0732 12.8076 26.1234 12.8076 25.5376 13.3934C24.9518 13.9792 24.9518 14.9289 25.5376 15.5147L34.0229 24L25.5376 32.4853C24.9518 33.0711 24.9518 34.0208 25.5376 34.6066C26.1234 35.1924 27.0732 35.1924 27.6589 34.6066L37.2049 25.0607ZM11.8558 25.5H36.1442V22.5H11.8558V25.5Z" fill="currentColor"/>
+                    </svg>                    
+                </button>
+            </div>
+        </section>
+    </main>
     <script src="./js/dropdownMenu.js"></script>
     <script src="./js/burgerNavigation.js"></script>
     <script src="./js/searchbar.js"></script>
+    <script src="./js/slider.js"></script>
 </body>
 </html>
