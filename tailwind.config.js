@@ -17,8 +17,8 @@ module.exports = {
         },
         gridTemplateColumns: {
             'bleed': '1fr min(1262px, 90%) 1fr',
-            'bleed-right': 'min(600px, 50%) 1fr;',
-            'bleed-left': 'min(50%,600px) 1fr;',
+            'bleed-right': 'min(600px, 50%) 1fr',
+            'bleed-left': '1fr min(600px, 50%)',
         }
     },
   },
