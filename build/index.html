@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 </head>
 <body class="min-h-screen text-black">
     <header class="bg-white grid grid-cols-bleed">
@@ -191,6 +193,23 @@
             </main>
         </div>
     </section>
+    <section class="relative grid grid-cols-bleed bg-beige pt-[120px] pb-11 overflow-x-hidden">
+        <div class="col-start-2">
+            <span class="block text-green text-xs mb-4">Realizacje</span>
+            <h2 class="text-5xl font-secondary font-medium leading-[1.15]">Nasze <span class="italic font-display">Projekty</span></h2>
+        </div>
+        <div id="gallery-grid" class="mt-24 row-start-2 col-start-1 col-span-full relative">
+            <div id="hiding-gradient" class="absolute left-0 bottom-0 w-full h-[1000px] bg-gradient-to-t from-beige to-faded-beige z-10 flex items-end justify-center pointer-events-none">
+                <button id="more-photos-button" tabindex="0" class="text-base rounded-full bg-transparent text-black px-6 py-[12px] border border-black flex justify-center items-center gap-2 hover:bg-black hover:text-white pointer-events-auto mb-[45px]">
+                    Rozwiń
+                    <svg viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4">
+                        <path d="M16 8.49529L15.1043 7.59959L8.63642 14.0769L8.63642 0.5L7.36358 0.5L7.36358 14.0675L0.895699 7.59959L9.54553e-08 8.49529L8.00471 16.5L16 8.49529Z" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+            <!-- Tutaj idą zdjęcia -->
+        </div>
+    </section>
     <section class="grid grid-cols-bleed bg-grey py-[60px]">
         <div class="col-start-2 col-span-1 grid grid-cols-1 md:grid-cols-6 xl:grid-cols-12 gap-16">
             <div class="text-white bg-green py-16 px-6 md:py-[120px] md:px-[110px] flex max-md:flex-col items-center content-between gap-16 lg:col-start-2 lg:col-span-10 col-start-1 col-span-full">
@@ -241,6 +260,7 @@
             </div>
         </div>
     </footer>
+    <script src="./js/gallery.js"></script>
     <script src="./js/dropdownMenu.js"></script>
     <script src="./js/burgerNavigation.js"></script>
     <script src="./js/searchbar.js"></script>
