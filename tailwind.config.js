@@ -40,12 +40,22 @@ module.exports = {
             fadeIn: {
                 '0%': {opacity: 0},
                 '100%': {opacity: 1},
-            }
+            },
+            enter: {
+                '0%': {opacity: 0, transform: 'translateY(-10px)'},
+                '100%': {opacity: 1, transform: 'translateY(0)'},
+            },
+            
         },
         animation: {
             'ball-enter': 'ballIn .3s linear both',
             'ball-expand': 'ballOut .3s linear both',
-            'fade-in': 'fadeIn .2s linear both .2s'
+            'fade-in': 'fadeIn .2s linear both .2s',
+            'dropdown-enter': 'enter .2s linear both',
+            // 'dropdown-enter': 'enter .2s linear both'
+        },
+        translate: {
+            'screen': '90vw',
         }
     },
   },

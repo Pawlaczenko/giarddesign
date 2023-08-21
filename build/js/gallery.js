@@ -1,80 +1,83 @@
-const galleryGrid = document.getElementById("gallery-grid");
-const morePhotosButton = document.getElementById("more-photos-button");
-const hidingGradient = document.getElementById("hiding-gradient");
-const PHOTOS_PER_PAGE = 5;
-const PHOTOS_ON_LOAD = 9;
-let lastPhotoAdded = 0;
+const galleryWindow = document.getElementById('gallery-window');
+const closeButtonGallery = document.getElementById('gallery-button-close');
+const nextButtonGallery = document.getElementById('gallery-button-next');
+const prevButtonGallery = document.getElementById('gallery-button-previous');
+const galleryBackdrop = document.getElementById('gallery-backdrop');
 
-const GALLERY_PHOTOS = [
-    {path: 'gallery-1.jpg', alt: 'Ogród ze schodami'},
-    {path: 'gallery-2.jpg', alt: 'Ogród przy basenie'},
-    {path: 'gallery-3.jpg', alt: 'Ogród tunelowy z różami'},
-    {path: 'gallery-4.jpg', alt: 'Ryba pływająca w stawie z liliami'},
-    {path: 'gallery-5.jpg', alt: 'Droga kamienna'},
-    {path: 'gallery-6.jpg', alt: 'Ogród'},
-    {path: 'gallery-7.jpg', alt: 'Ogród'},
-    {path: 'gallery-8.jpg', alt: 'Ogród'},
-    {path: 'gallery-9.jpg', alt: 'Ogród'},
-    {path: 'gallery-10.jpg', alt: 'Ogród'},
-    {path: 'gallery-11.jpg', alt: 'Ogród'},
-    {path: 'gallery-12.jpg', alt: 'Ogród'},
-    {path: 'gallery-13.jpg', alt: 'Ogród'},
-    {path: 'gallery-14.jpg', alt: 'Ogród'},
-    {path: 'gallery-15.jpg', alt: 'Ogród'},
-    {path: 'gallery-16.jpg', alt: 'Ogród'},
-];
+let currentPhotoIndex = 0;
+let galleryOpen = false;
+const PHOTOS_COUNT = GALLERY_PHOTOS.length;
 
-var macyInstance = Macy({
-    container: galleryGrid,
-    columns: 2,
-    margin: 20,
-    useOwnImageLoader: true,
-    mobileFirst: true,
-    breakAt: {
-        768: {
-            columns: 3,
-            margin: 43
-        }
+const getPhotoPath = path => `./img/gallery/${path}`;
+
+const openGallery = () => {
+    galleryOpen = true;
+    document.querySelector('body').classList.add('overflow-hidden');
+    const photo = GALLERY_PHOTOS[currentPhotoIndex];
+    let activeSlide = galleryWindow.querySelector('.gallery-slide.translate-x-0');
+    activeSlide.querySelector('img').setAttribute('src',getPhotoPath(photo.path));
+
+    galleryWindow.classList.remove('invisible','opacity-0');
+}
+
+const closeGallery = () => {
+    galleryOpen = false;
+    document.querySelector('body').classList.remove('overflow-hidden');
+    galleryWindow.classList.add('invisible','opacity-0');
+    currentPhotoIndex = 0;
+}
+
+const changePhoto = (direction) => {
+    currentPhotoIndex = (currentPhotoIndex + direction + PHOTOS_COUNT) % PHOTOS_COUNT;
+    const photo = GALLERY_PHOTOS[currentPhotoIndex];
+
+    let activeSlide = document.querySelector('.gallery-slide.translate-x-0');
+    let nextSlide = document.querySelector('.gallery-slide.translate-x-screen');
+    let previousSlide = document.querySelector('.gallery-slide.-translate-x-screen');
+
+    const [incomingPhoto,hiddenPhoto] = direction === 1 ? [nextSlide,previousSlide] : [previousSlide,nextSlide];
+    incomingPhoto.querySelector('img').setAttribute('src',getPhotoPath(photo.path));
+    incomingPhoto.querySelector('img').setAttribute('alt',photo.alt);
+
+    activeSlide.classList.remove('translate-x-0');
+    activeSlide.classList.add(`${(direction === 1 ? '-' : '')}translate-x-screen`,'opacity-0');
+
+    incomingPhoto.classList.remove(`${(direction === -1 ? '-' : '')}translate-x-screen`,'opacity-0');
+    incomingPhoto.classList.add('translate-x-0');
+
+    hiddenPhoto.classList.remove(`${(direction === 1 ? '-' : '')}translate-x-screen`);
+    hiddenPhoto.classList.add(`${(direction === -1 ? '-' : '')}translate-x-screen`);
+}
+
+const nextPhoto = () => {changePhoto(1)}
+const prevPhoto = () => {changePhoto(-1)}
+
+document.addEventListener('click',(e)=>{
+    const target = e.target.closest('.gallery-item');
+    if(target) {
+        const clickedPhotoIndex = parseInt(target.dataset.photoIndex);
+        currentPhotoIndex = clickedPhotoIndex;
+        openGallery();
     }
 });
 
-const createPhotoNode = ({path,alt}) => {
-    const galleryImage = document.createElement('img');
-    galleryImage.setAttribute('src',`./img/gallery/${path}`)
-    galleryImage.setAttribute('alt',alt)
-    galleryImage.classList.add('w-full');
+nextButtonGallery.addEventListener('click',nextPhoto)
+prevButtonGallery.addEventListener('click',prevPhoto)
+galleryBackdrop.addEventListener('click',closeGallery);
+closeButtonGallery.addEventListener('click',closeGallery);
 
-    const galleryItem = document.createElement('div');
-    galleryItem.classList.add("grid-item","hover:scale-105","transition-all","cursor-pointer",'animate-fade-in','opacity-0')
-    galleryItem.appendChild(galleryImage);
-
-    return galleryItem;
-}
-
-const loadPhotos = (startingIndex,amount) => {
-    const photosToLoad = GALLERY_PHOTOS.slice(startingIndex,startingIndex+amount);
-    photosToLoad.forEach((photo) => {
-        let photoNode = createPhotoNode(photo);
-        galleryGrid.appendChild(photoNode);
-    });
-    lastPhotoAdded = startingIndex+amount;
-
-    imagesLoaded(galleryGrid,()=>{
-        macyInstance.recalculate();
-    })
-}
-
-const removeHidingGradient = () => {
-    if(lastPhotoAdded >= GALLERY_PHOTOS.length){
-        hidingGradient.remove();
+document.addEventListener('keydown',(e) => {
+    if(galleryOpen){
+        switch(e.key){
+            case 'ArrowLeft':
+                prevPhoto();
+                break;
+            case 'ArrowRight':
+                nextPhoto();
+                break;
+            case 'Escape':
+                closeGallery();
+                break;
+        }
     }
-}
-
-window.onload = () => {
-    loadPhotos(0,PHOTOS_ON_LOAD);
-}
-
-morePhotosButton.addEventListener('click',()=>{
-    loadPhotos(lastPhotoAdded,PHOTOS_PER_PAGE);
-    removeHidingGradient();
-})
+});

@@ -10,6 +10,4 @@ burgerButton.addEventListener('click', (e) => {
     menuNavigation.dataset.opened = !isOpened;
     
     burgerIcon.setAttribute('d',isOpened ? OPEN_BURGER_PATH : CLOSED_BURGER_PATH);
-    // menuNavigation.classList.toggle('top-[-100%]');
-    // menuNavigation.classList.toggle('top-[72px]');
 })

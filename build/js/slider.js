@@ -7,13 +7,10 @@ function nextSlide(){
     let nextSlide = activeSlide.nextElementSibling;
 
     if(nextSlide && nextSlide.classList.contains('slide')){
-        console.log(nextSlide);
-        console.log(nextSlide.scrollHeight);
-
         activeSlide.classList.remove('translate-x-0');
-        activeSlide.classList.add('-translate-x-full');
+        activeSlide.classList.add('-translate-x-full','invisible');
         
-        nextSlide.classList.remove('translate-x-full');
+        nextSlide.classList.remove('translate-x-full','invisible');
         nextSlide.classList.add('translate-x-0');
     }
 }
@@ -25,9 +22,9 @@ function previousSlide(){
     if(previousSlide) {
         sliderWrapper.clientHeight = previousSlide.clientHeight;
         activeSlide.classList.remove('translate-x-0');
-        activeSlide.classList.add('translate-x-full');
+        activeSlide.classList.add('translate-x-full','invisible');
         
-        previousSlide.classList.remove('-translate-x-full');
+        previousSlide.classList.remove('-translate-x-full','invisible');
         previousSlide.classList.add('translate-x-0');
     }
 }
