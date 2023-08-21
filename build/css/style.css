@@ -1291,6 +1291,38 @@ html {
   background-image: url('./build/img/slider-3.jpg');
 }
 
+.bg-\[url\(\'\.\.\/build\/img\/info-img\.jpg\'\)\] {
+  background-image: url('../build/img/info-img.jpg');
+}
+
+.bg-\[url\(\'\.\.\/build\/img\/slider-1\.jpg\'\)\] {
+  background-image: url('../build/img/slider-1.jpg');
+}
+
+.bg-\[url\(\'\.\.\/build\/img\/slider-2\.jpg\'\)\] {
+  background-image: url('../build/img/slider-2.jpg');
+}
+
+.bg-\[url\(\'\.\.\/build\/img\/slider-3\.jpg\'\)\] {
+  background-image: url('../build/img/slider-3.jpg');
+}
+
+.bg-\[url\(\'\.\.\/img\/info-img\.jpg\'\)\] {
+  background-image: url('../img/info-img.jpg');
+}
+
+.bg-\[url\(\'\.\.\/img\/slider-1\.jpg\'\)\] {
+  background-image: url('../img/slider-1.jpg');
+}
+
+.bg-\[url\(\'\.\.\/img\/slider-2\.jpg\'\)\] {
+  background-image: url('../img/slider-2.jpg');
+}
+
+.bg-\[url\(\'\.\.\/img\/slider-3\.jpg\'\)\] {
+  background-image: url('../img/slider-3.jpg');
+}
+
 .from-beige {
   --tw-gradient-from: #DCC1AB var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(220 193 171 / 0) var(--tw-gradient-to-position);
