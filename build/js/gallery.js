@@ -1,17 +1,9 @@
 const galleryGrid = document.getElementById("gallery-grid");
 const morePhotosButton = document.getElementById("more-photos-button");
 const hidingGradient = document.getElementById("hiding-gradient");
-const fragment = document.createDocumentFragment();
 const PHOTOS_PER_PAGE = 5;
 const PHOTOS_ON_LOAD = 9;
 let lastPhotoAdded = 0;
-
-const msnry = new Masonry( galleryGrid, {
-    columnWidth: '.grid-sizer',
-    itemSelector: '.grid-item',
-    percentPosition: true,
-    gutter: 43,
-});
 
 const GALLERY_PHOTOS = [
     {path: 'gallery-1.jpg', alt: 'Ogród ze schodami'},
@@ -30,16 +22,30 @@ const GALLERY_PHOTOS = [
     {path: 'gallery-14.jpg', alt: 'Ogród'},
     {path: 'gallery-15.jpg', alt: 'Ogród'},
     {path: 'gallery-16.jpg', alt: 'Ogród'},
-]
+];
+
+var macyInstance = Macy({
+    container: galleryGrid,
+    columns: 2,
+    margin: 20,
+    useOwnImageLoader: true,
+    mobileFirst: true,
+    breakAt: {
+        768: {
+            columns: 3,
+            margin: 43
+        }
+    }
+});
 
 const createPhotoNode = ({path,alt}) => {
     const galleryImage = document.createElement('img');
     galleryImage.setAttribute('src',`./img/gallery/${path}`)
     galleryImage.setAttribute('alt',alt)
-    galleryImage.classList.add(['w-full']);
+    galleryImage.classList.add('w-full');
 
     const galleryItem = document.createElement('div');
-    galleryItem.classList.add("grid-item","w-gallery-item","md:w-gallery-item-md","lg:w-gallery-item-lg","mb-[43px]","hover:scale-105","transition-all","cursor-pointer")
+    galleryItem.classList.add("grid-item","hover:scale-105","transition-all","cursor-pointer",'animate-fade-in','opacity-0')
     galleryItem.appendChild(galleryImage);
 
     return galleryItem;
@@ -47,15 +53,14 @@ const createPhotoNode = ({path,alt}) => {
 
 const loadPhotos = (startingIndex,amount) => {
     const photosToLoad = GALLERY_PHOTOS.slice(startingIndex,startingIndex+amount);
-    const addedPhotos = photosToLoad.map((photo) => {
+    photosToLoad.forEach((photo) => {
         let photoNode = createPhotoNode(photo);
         galleryGrid.appendChild(photoNode);
     });
     lastPhotoAdded = startingIndex+amount;
 
-    imagesLoaded(galleryGrid,()=>{    
-        msnry.reloadItems();
-        msnry.layout();
+    imagesLoaded(galleryGrid,()=>{
+        macyInstance.recalculate();
     })
 }
 
@@ -70,6 +75,6 @@ window.onload = () => {
 }
 
 morePhotosButton.addEventListener('click',()=>{
-    removeHidingGradient();
     loadPhotos(lastPhotoAdded,PHOTOS_PER_PAGE);
+    removeHidingGradient();
 })

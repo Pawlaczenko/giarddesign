@@ -36,11 +36,16 @@ module.exports = {
                 '0%': {transform: 'scale(1)', background: 'black'},
                 '50%': {background: 'transparent', opacity: 1},
                 '100%': {transform: 'scale(1.8)', opacity: .1},
+            },
+            fadeIn: {
+                '0%': {opacity: 0},
+                '100%': {opacity: 1},
             }
         },
         animation: {
             'ball-enter': 'ballIn .3s linear both',
-            'ball-expand': 'ballOut .3s linear both'
+            'ball-expand': 'ballOut .3s linear both',
+            'fade-in': 'fadeIn .2s linear both .2s'
         }
     },
   },
