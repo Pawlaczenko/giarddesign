@@ -538,6 +538,40 @@ html {
   --tw-backdrop-sepia:  ;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
 .pointer-events-none {
   pointer-events: none;
 }
@@ -588,6 +622,10 @@ html {
 
 .z-\[-1\] {
   z-index: -1;
+}
+
+.z-\[-2\] {
+  z-index: -2;
 }
 
 .col-span-1 {
@@ -797,6 +835,14 @@ html {
   width: max-content;
 }
 
+.w-1\/5 {
+  width: 20%;
+}
+
+.max-w-\[100vw\] {
+  max-width: 100vw;
+}
+
 .flex-\[1\] {
   flex: 1;
 }
@@ -834,8 +880,56 @@ html {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+@keyframes ballIn {
+  0% {
+    transform: scale(1.5);
+    opacity: 0.3;
+  }
+
+  50% {
+    background: transparent;
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    background: black;
+  }
+}
+
+.animate-ball-enter {
+  animation: ballIn .3s linear both;
+}
+
+@keyframes ballOut {
+  0% {
+    transform: scale(1);
+    background: black;
+  }
+
+  50% {
+    background: transparent;
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.8);
+    opacity: 0.1;
+  }
+}
+
+.animate-ball-expand {
+  animation: ballOut .3s linear both;
+}
+
 .cursor-pointer {
   cursor: pointer;
+}
+
+.select-none {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .grid-cols-1 {
@@ -1287,6 +1381,10 @@ html {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.opacity-0 {
+  opacity: 0;
+}
+
 .shadow-md {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
@@ -1297,6 +1395,20 @@ html {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+}
+
+.delay-100 {
+  transition-delay: 100ms;
 }
 
 .duration-1000 {
@@ -1313,6 +1425,14 @@ html {
 
 .duration-300 {
   transition-duration: 300ms;
+}
+
+.duration-\[10\] {
+  transition-duration: 10;
+}
+
+.duration-\[100\] {
+  transition-duration: 100;
 }
 
 .ease-in-out {

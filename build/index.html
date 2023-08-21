@@ -12,6 +12,7 @@
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 </head>
 <body class="min-h-screen text-black">
+    <!-- HEADER I NAWIGACJA -->
     <header class="bg-white grid grid-cols-bleed">
         <section class="col-start-2 flex items-center justify-between py-6">
             <a href="#hero" id="logo" class="flex-shrink-0 mr-auto">
@@ -54,6 +55,7 @@
             </button>
         </section>
     </header>
+    <!-- SEKCJA INTRO -->
     <main class="bg-beige grid grid-cols-bleed" id="hero">
         <section class="col-start-1 col-span-3 lg:col-start-2 lg:col-span-2 relative h-[900px] lg:h-[740px] overflow-hidden" id="slider-wrapper">
             <article class="slide bg-beige grid lg:gap-16 max-lg:grid-rows-[250px_1fr] grid-cols-bleed lg:grid-cols-bleed-right absolute h-full left-0 w-full transition-all ease-in-out duration-1000 transform translate-x-0">
@@ -124,18 +126,19 @@
             </div>
         </section>
     </main>
-    <section class="grid grid-cols-bleed bg-grey pt-24 md:pt-[120px] pb-40">
+    <!-- SEKCJA OFERTA -->
+    <section id="oferta-section" class="relative grid grid-cols-bleed bg-grey pt-24 md:pt-[120px] pb-40">
         <div class="grid grid-cols-1 md:grid-cols-6 xl:grid-cols-12 gap-[96px] col-start-2 col-span-1">
-            <div class="xl:col-start-2 xl:col-span-7 md:col-start-2 md:col-span-4 col-start-1 col-span-full">
+            <div id="oferta-text" class="xl:col-start-2 xl:col-span-7 md:col-start-2 md:col-span-4 col-start-1 col-span-full">
                 <span class="block text-green text-xs mb-4">Oferta</span>
-                <h2 class="text-5xl font-secondary font-medium leading-[1.15] mb-8">Działamy <span class="italic font-display">kompleksowo</span></h2>
+                <h2 class="translate text-5xl font-secondary font-medium leading-[1.15] mb-8">Działamy <span class="italic font-display">kompleksowo</span></h2>
                 <p class="tracking-[-0.01em]">Oferujemy kompletną obsługę inwestycji terenów zielonych. Projektujemy nowoczesne ogrody przydomowe oraz rezydencjonalne. Stworzymy dla Ciebie projekt, zwizualizujemy go i wcielimy w życie, a na każdym etapie posłużymy radą i wieloletnim doświadczeniem. </p>
             </div>
             <div class="col-start-1 col-span-full grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] xl:gap-16 gap-8">
-                <div class="active:scale-100 active:shadow-inner relative group min-h-[370px] px-10 py-12 rounded-[1.75rem] bg-white flex flex-col cursor-pointer hover:scale-[1.02] hover:shadow-md focus:scale-[1.02] focus:shadow-md transition-all" tabindex="0">
-                    <figure class="relative w-11 h-11 p-[0.125em] object-contain flex items-center">
-                        <div class="absolute z-[-1] left-0 top-0 w-full h-full scale-0 group-hover:scale-150 group-focus:scale-150 transition-all group-active:bg-beige group-hover:bg-black group-focus:bg-black rounded-full"></div>
-                        <img src="./img/icons/icon_1.png" alt="pen icon" class="group-hover:invert group-focus:invert" />
+                <div class="oferta-card select-none active:scale-100 active:shadow-inner relative group min-h-[370px] px-10 py-12 rounded-[1.75rem] bg-white flex flex-col cursor-pointer hover:scale-[1.02] hover:shadow-md focus:scale-[1.02] focus:shadow-md transition-all" tabindex="0">
+                    <figure class="oferta-card-icon relative w-11 h-11 p-[0.125em] object-contain flex items-center">
+                        <div class="absolute z-[-1] left-0 top-0 w-full h-full scale-0 group-hover:scale-150 group-focus:scale-150 transition-transform delay-300 group-active:bg-beige group-hover:bg-black group-focus:bg-black rounded-full"></div>
+                        <img src="./img/icons/icon_1.png" alt="pen icon" class="group-hover:invert group-focus:invert transition-all" />
                     </figure>
                     <h3 class="text-[1.75rem] font-secondary font-medium tracking-tighter leading-[1.15] mt-8 mb-3">Projekty</h3>
                     <p class="tracking-[-0.01em] text-sm leading-normal">Zaprojektujemy Twój ogród w nowoczesnym stylu i z najlepszym wykorzystaniem istniejącej przestrzeni.</p>
@@ -146,10 +149,10 @@
                         </svg>                          
                     </a>
                 </div>
-                <div class="active:scale-100 active:shadow-inner relative group min-h-[370px] px-10 py-12 rounded-[1.75rem] bg-white flex flex-col cursor-pointer hover:scale-[1.02] hover:shadow-md focus:scale-[1.02] focus:shadow-md transition-all" tabindex="0">
-                    <figure class="relative w-11 h-11 p-[0.125em] object-contain flex items-center">
-                        <div class="absolute z-[-1] left-0 top-0 w-full h-full scale-0 group-hover:scale-150 group-focus:scale-150 transition-all group-active:bg-beige group-hover:bg-black group-focus:bg-black rounded-full"></div>
-                        <img src="./img/icons/icon_2.png" alt="pen icon" class="group-hover:invert group-focus:invert" />
+                <div class="oferta-card select-none active:scale-100 active:shadow-inner relative group min-h-[370px] px-10 py-12 rounded-[1.75rem] bg-white flex flex-col cursor-pointer hover:scale-[1.02] hover:shadow-md focus:scale-[1.02] focus:shadow-md transition-all" tabindex="0">
+                    <figure class="oferta-card-icon relative w-11 h-11 p-[0.125em] object-contain flex items-center">
+                        <div class="absolute z-[-1] left-0 top-0 w-full h-full scale-0 group-hover:scale-150 group-focus:scale-150 transition-transform delay-300 group-active:bg-beige group-hover:bg-black group-focus:bg-black rounded-full"></div>
+                        <img src="./img/icons/icon_2.png" alt="pen icon" class="group-hover:invert group-focus:invert transition-all" />
                     </figure>
                     <h3 class="text-[1.75rem] font-secondary font-medium tracking-tighter leading-[1.15] mt-8 mb-3">Wizualizacje</h3>
                     <p class="tracking-[-0.01em] text-sm leading-normal">Przedstawimy Ci projekty koncepcyjne w postaci wirtualnego spaceru animowanego w technologii 3D.</p>
@@ -160,10 +163,10 @@
                         </svg>                          
                     </a>
                 </div>
-                <div class="active:scale-100 active:shadow-inner relative group min-h-[370px] px-10 py-12 rounded-[1.75rem] bg-white flex flex-col cursor-pointer hover:scale-[1.02] hover:shadow-md focus:scale-[1.02] focus:shadow-md transition-all" tabindex="0">
-                    <figure class="relative w-11 h-11 p-[0.125em] object-contain flex items-center">
-                        <div class="absolute z-[-1] left-0 top-0 w-full h-full scale-0 group-hover:scale-150 group-focus:scale-150 transition-all group-active:bg-beige group-hover:bg-black group-focus:bg-black rounded-full"></div>
-                        <img src="./img/icons/icon_3.png" alt="pen icon" class="group-hover:invert group-focus:invert" />
+                <div class="oferta-card select-none active:scale-100 active:shadow-inner relative group min-h-[370px] px-10 py-12 rounded-[1.75rem] bg-white flex flex-col cursor-pointer hover:scale-[1.02] hover:shadow-md focus:scale-[1.02] focus:shadow-md transition-all" tabindex="0">
+                    <figure class="oferta-card-icon relative w-11 h-11 p-[0.125em] object-contain flex items-center">
+                        <div class="absolute z-[-1] left-0 top-0 w-full h-full scale-0 group-hover:scale-150 group-focus:scale-150 transition-transform delay-300 group-active:bg-beige group-hover:bg-black group-focus:bg-black rounded-full"></div>
+                        <img src="./img/icons/icon_3.png" alt="pen icon" class="group-hover:invert group-focus:invert transition-all" />
                     </figure>
                     <h3 class="text-[1.75rem] font-secondary font-medium tracking-tighter leading-[1.15] mt-8 mb-3">Realizacje</h3>
                     <p class="tracking-[-0.01em] text-sm leading-normal">Zrealizujemy Twoje marzenie przy użyciu najnowszych rozwiązań i zaawansowanych technologii.</p>
@@ -177,6 +180,7 @@
             </div>
         </div>
     </section>
+    <!-- SEKCJA O FIRMIE -->
     <section class="relative grid grid-cols-bleed bg-green">
         <div class="col-start-1 col-span-2 grid grid-cols-bleed-left md:gap-16 max-md:grid-cols-bleed max-md:grid-rows-[300px,auto]">
             <figure class="bg-[url('/build/img/info-img.jpg')] bg-cover bg-top fill max-md:absolute max-md:h-[300px] left-0 top-0 w-full"></figure>
@@ -193,7 +197,8 @@
             </main>
         </div>
     </section>
-    <section class="relative grid grid-cols-bleed bg-beige pt-[120px] pb-11 overflow-x-hidden">
+    <!-- SEKCJA REALIZACJE -->
+    <section class="relative grid grid-cols-bleed bg-beige pt-[120px] pb-11 overflow-hidden">
         <div class="col-start-2">
             <span class="block text-green text-xs mb-4">Realizacje</span>
             <h2 class="text-5xl font-secondary font-medium leading-[1.15]">Nasze <span class="italic font-display">Projekty</span></h2>
@@ -207,9 +212,11 @@
                     </svg>
                 </button>
             </div>
+            <div class="grid-sizer w-gallery-item md:w-gallery-item-md lg:w-gallery-item-lg"></div>
             <!-- Tutaj idą zdjęcia -->
         </div>
     </section>
+    <!-- SEKCJA KONTAKT -->
     <section class="grid grid-cols-bleed bg-grey py-[60px]">
         <div class="col-start-2 col-span-1 grid grid-cols-1 md:grid-cols-6 xl:grid-cols-12 gap-16">
             <div class="text-white bg-green py-16 px-6 md:py-[120px] md:px-[110px] flex max-md:flex-col items-center content-between gap-16 lg:col-start-2 lg:col-span-10 col-start-1 col-span-full">
@@ -221,6 +228,7 @@
             </div>
         </div>
     </section>
+    <!-- STOPKA -->
     <footer class="grid grid-cols-bleed bg-black py-[80px]">
         <div class="col-start-2 col-span-1 grid grid-cols-1 md:grid-cols-6 xl:grid-cols-12 gap-16">
             <div class="text-white lg:col-start-2 lg:col-span-10 col-start-1 col-span-full">
@@ -260,6 +268,7 @@
             </div>
         </div>
     </footer>
+    <script src="./js/ball.js"></script>
     <script src="./js/gallery.js"></script>
     <script src="./js/dropdownMenu.js"></script>
     <script src="./js/burgerNavigation.js"></script>

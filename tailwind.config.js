@@ -25,6 +25,22 @@ module.exports = {
             'gallery-item-lg': 'calc((100% - 86px) / 3)',
             'gallery-item-md': 'calc((100% - 43px) / 2)',
             'gallery-item': '100%',
+        },
+        keyframes: {
+            ballIn: {
+                '0%': {transform: 'scale(1.5)', opacity: .3},
+                '50%': {background: 'transparent', opacity: 1},
+                '100%': {transform: 'scale(1)', background: 'black'}
+            },
+            ballOut: {
+                '0%': {transform: 'scale(1)', background: 'black'},
+                '50%': {background: 'transparent', opacity: 1},
+                '100%': {transform: 'scale(1.8)', opacity: .1},
+            }
+        },
+        animation: {
+            'ball-enter': 'ballIn .3s linear both',
+            'ball-expand': 'ballOut .3s linear both'
         }
     },
   },

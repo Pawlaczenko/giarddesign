@@ -7,9 +7,10 @@ const PHOTOS_ON_LOAD = 9;
 let lastPhotoAdded = 0;
 
 const msnry = new Masonry( galleryGrid, {
+    columnWidth: '.grid-sizer',
     itemSelector: '.grid-item',
     percentPosition: true,
-    gutter: 43
+    gutter: 43,
 });
 
 const GALLERY_PHOTOS = [
@@ -46,7 +47,7 @@ const createPhotoNode = ({path,alt}) => {
 
 const loadPhotos = (startingIndex,amount) => {
     const photosToLoad = GALLERY_PHOTOS.slice(startingIndex,startingIndex+amount);
-    photosToLoad.forEach((photo) => {
+    const addedPhotos = photosToLoad.map((photo) => {
         let photoNode = createPhotoNode(photo);
         galleryGrid.appendChild(photoNode);
     });
@@ -69,6 +70,6 @@ window.onload = () => {
 }
 
 morePhotosButton.addEventListener('click',()=>{
-    loadPhotos(lastPhotoAdded,PHOTOS_PER_PAGE);
     removeHidingGradient();
+    loadPhotos(lastPhotoAdded,PHOTOS_PER_PAGE);
 })
