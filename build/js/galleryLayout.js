@@ -44,10 +44,10 @@ const createPhotoNode = ({path,alt},index) => {
     galleryImage.setAttribute('src',`./img/gallery/${path}`)
     galleryImage.setAttribute('alt',alt);
     galleryImage.setAttribute('tabindex','0');
-    galleryImage.classList.add('w-full');
+    galleryImage.classList.add('w-full','hover:scale-105',"transition-all");
 
     const galleryItem = document.createElement('div');
-    galleryItem.classList.add("gallery-item","hover:scale-105","transition-all","cursor-pointer",'animate-fade-in','opacity-0');
+    galleryItem.classList.add("gallery-item","transition-all","cursor-pointer",'animate-fade-in','opacity-0','overflow-hidden');
     galleryItem.dataset.photoIndex = index;
     galleryItem.appendChild(galleryImage);
 
@@ -67,6 +67,7 @@ const loadPhotos = (startingIndex,amount) => {
         galleryGrid.appendChild(fragment);
         macyInstance.recalculate();
         morePhotosButton.querySelector('.overlay').classList.add('invisible');
+        removeHidingGradient();
     })
 }
 
@@ -82,5 +83,4 @@ window.onload = () => {
 
 morePhotosButton.addEventListener('click',()=>{
     loadPhotos(lastPhotoAdded,PHOTOS_PER_PAGE);
-    removeHidingGradient();
 })
