@@ -1002,32 +1002,6 @@ html {
   animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8,0,1,1);
-  }
-
-  50% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0,0,0.2,1);
-  }
-}
-
-.animate-bounce {
-  animation: bounce 1s infinite;
-}
-
-@keyframes pulse {
-  50% {
-    opacity: .5;
-  }
-}
-
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -1120,10 +1094,6 @@ html {
   gap: 0.5rem;
 }
 
-.gap-3 {
-  gap: 0.75rem;
-}
-
 .gap-4 {
   gap: 1rem;
 }
@@ -1134,6 +1104,10 @@ html {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-\[10px\] {
+  gap: 10px;
 }
 
 .gap-\[96px\] {
@@ -1255,72 +1229,24 @@ html {
   --tw-bg-opacity: 0.9;
 }
 
-.bg-\[url\(\'\/build\/img\/info-img\.jpg\'\)\] {
-  background-image: url('/build/img/info-img.jpg');
+.bg-\[url\(\'\.\.\/img\/info-img\.webp\'\)\] {
+  background-image: url('../img/info-img.webp');
 }
 
-.bg-\[url\(\'\/build\/img\/slider-1\.jpg\'\)\] {
-  background-image: url('/build/img/slider-1.jpg');
+.bg-\[url\(\'\.\.\/img\/slider-1\.webp\'\)\] {
+  background-image: url('../img/slider-1.webp');
 }
 
-.bg-\[url\(\'\/build\/img\/slider-2\.jpg\'\)\] {
-  background-image: url('/build/img/slider-2.jpg');
+.bg-\[url\(\'\.\.\/img\/slider-2\.webp\'\)\] {
+  background-image: url('../img/slider-2.webp');
 }
 
-.bg-\[url\(\'\/build\/img\/slider-3\.jpg\'\)\] {
-  background-image: url('/build/img/slider-3.jpg');
+.bg-\[url\(\'\.\.\/img\/slider-3\.webp\'\)\] {
+  background-image: url('../img/slider-3.webp');
 }
 
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
-}
-
-.bg-\[url\(\'\.\/build\/img\/info-img\.jpg\'\)\] {
-  background-image: url('./build/img/info-img.jpg');
-}
-
-.bg-\[url\(\'\.\/build\/img\/slider-1\.jpg\'\)\] {
-  background-image: url('./build/img/slider-1.jpg');
-}
-
-.bg-\[url\(\'\.\/build\/img\/slider-2\.jpg\'\)\] {
-  background-image: url('./build/img/slider-2.jpg');
-}
-
-.bg-\[url\(\'\.\/build\/img\/slider-3\.jpg\'\)\] {
-  background-image: url('./build/img/slider-3.jpg');
-}
-
-.bg-\[url\(\'\.\.\/build\/img\/info-img\.jpg\'\)\] {
-  background-image: url('../build/img/info-img.jpg');
-}
-
-.bg-\[url\(\'\.\.\/build\/img\/slider-1\.jpg\'\)\] {
-  background-image: url('../build/img/slider-1.jpg');
-}
-
-.bg-\[url\(\'\.\.\/build\/img\/slider-2\.jpg\'\)\] {
-  background-image: url('../build/img/slider-2.jpg');
-}
-
-.bg-\[url\(\'\.\.\/build\/img\/slider-3\.jpg\'\)\] {
-  background-image: url('../build/img/slider-3.jpg');
-}
-
-.bg-\[url\(\'\.\.\/img\/info-img\.jpg\'\)\] {
-  background-image: url('../img/info-img.jpg');
-}
-
-.bg-\[url\(\'\.\.\/img\/slider-1\.jpg\'\)\] {
-  background-image: url('../img/slider-1.jpg');
-}
-
-.bg-\[url\(\'\.\.\/img\/slider-2\.jpg\'\)\] {
-  background-image: url('../img/slider-2.jpg');
-}
-
-.bg-\[url\(\'\.\.\/img\/slider-3\.jpg\'\)\] {
-  background-image: url('../img/slider-3.jpg');
 }
 
 .from-beige {
@@ -1440,6 +1366,10 @@ html {
 .py-\[80px\] {
   padding-top: 80px;
   padding-bottom: 80px;
+}
+
+.pb-1 {
+  padding-bottom: 0.25rem;
 }
 
 .pb-11 {
@@ -1577,22 +1507,24 @@ html {
   transition-duration: 150ms;
 }
 
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .transition-transform {
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
-.delay-300 {
-  transition-delay: 300ms;
-}
-
 .delay-100 {
   transition-delay: 100ms;
 }
 
-.delay-150 {
-  transition-delay: 150ms;
+.delay-300 {
+  transition-delay: 300ms;
 }
 
 .duration-1000 {
@@ -1769,8 +1701,32 @@ html {
   background-color: rgb(220 193 171 / var(--tw-bg-opacity));
 }
 
+.aria-hidden\:hidden[aria-hidden="true"] {
+  display: none;
+}
+
 .data-\[opened\=true\]\:top-\[72px\][data-opened=true] {
   top: 72px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes backgroundPulse {
+    0% {
+      background-size: 100%;
+    }
+
+    50% {
+      background-size: 115%;
+    }
+
+    100% {
+      background-size: 100%;
+    }
+  }
+
+  .motion-safe\:animate-background-pulse {
+    animation: backgroundPulse 15s linear both infinite;
+  }
 }
 
 @media not all and (min-width: 1024px) {
@@ -2008,10 +1964,6 @@ html {
 
   .lg\:grid-cols-bleed-right {
     grid-template-columns: min(600px, 50%) 1fr;
-  }
-
-  .lg\:justify-center {
-    justify-content: center;
   }
 
   .lg\:gap-16 {

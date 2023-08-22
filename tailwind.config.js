@@ -9,7 +9,7 @@ module.exports = {
         },
         colors: {
             transparent: 'transparent',
-            'black': '#111',
+            'black': '#111111',
             'beige': '#DCC1AB',
             'green': '#1B5B31',
             'grey': '#F5F0EC',
@@ -20,11 +20,6 @@ module.exports = {
             'bleed': '1fr min(1262px, 90%) 1fr',
             'bleed-right': 'min(600px, 50%) 1fr',
             'bleed-left': '1fr min(600px, 50%)',
-        },
-        width: {
-            'gallery-item-lg': 'calc((100% - 86px) / 3)',
-            'gallery-item-md': 'calc((100% - 43px) / 2)',
-            'gallery-item': '100%',
         },
         keyframes: {
             ballIn: {
@@ -45,6 +40,11 @@ module.exports = {
                 '0%': {opacity: 0, transform: 'translateY(-10px)'},
                 '100%': {opacity: 1, transform: 'translateY(0)'},
             },
+            backgroundPulse: {
+                '0%': {'background-size': '100%'},
+                '50%': {'background-size': '115%'},
+                '100%': {'background-size': '100%'},
+            }
             
         },
         animation: {
@@ -52,7 +52,7 @@ module.exports = {
             'ball-expand': 'ballOut .3s linear both',
             'fade-in': 'fadeIn .2s linear both .2s',
             'dropdown-enter': 'enter .2s linear both',
-            // 'dropdown-enter': 'enter .2s linear both'
+            'background-pulse': 'backgroundPulse 15s linear both infinite'
         },
         translate: {
             'screen': '90vw',
